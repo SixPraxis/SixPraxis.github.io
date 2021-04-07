@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blunder on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/blunder/</link>
+    <description>Recent content in blunder on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/blunder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Blunder</title>
+      <link>https://sixpraxis.github.io/posts/blunder/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/blunder/</guid>
+      <description>Blunder 10.10.10.191 by SixPraxis
+Write-Up Initial recon shows one open port running an HTML service. Inspection reveals a blog running on Bludit CMS v3.9.2. Known exploits for this platform include an authentication brute force mitigation bypass and an authenticated code execution. Fuzzing found a todo.txt, which has the name fergus in it. After creating a brute force script and making no progress, we notice that in the Stephen King blog post there is a name that is oddly unspaced.</description>
+    </item>
+    
+  </channel>
+</rss>

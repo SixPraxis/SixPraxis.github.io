@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>passage on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/passage/</link>
+    <description>Recent content in passage on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/passage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Passage</title>
+      <link>https://sixpraxis.github.io/posts/passage/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/passage/</guid>
+      <description>Passage 10.129.5.60 (Release Arena) by SixPraxis Write-Up Port 80 contained a news blog being run on the CuteNews cms software. http://10.129.5.60/CuteNews/ provided the version number of 2.1.2 and a login page. Searching the version number revealed three known exploits:
+CuteNews 2.1.2 - &#39;avatar&#39; Remote Code Execution (Metasploit) | php/remote/46698.rb CuteNews 2.1.2 - Arbitrary File Deletion | php/webapps/48447.txt CuteNews 2.1.2 - Authenticated Arbitrary File Upload | php/webapps/48458.txt Exploit 48458 allows file upload with a low level user, so the attacker registered for the website with gunship : gunship1 to get access to vulnerable area of the site.</description>
+    </item>
+    
+  </channel>
+</rss>

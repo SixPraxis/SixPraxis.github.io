@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>admirer on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/admirer/</link>
+    <description>Recent content in admirer on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/admirer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Admirer</title>
+      <link>https://sixpraxis.github.io/posts/admirer/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/admirer/</guid>
+      <description>Admirer 10.10.10.187 Write-Up Recon with NMAP shows three ports. 21, 22, 80. No progress on the first two. The apache service on 80 displays a gallery website with no useful links. Robots.txt reveals /admin-dir, but we do not have permission to view it. Fuzzing /admin-dir/ revealed contacts.txt, which contains some admin and developer e-mails, and credentials.txt, which has creds for an FTP, Wordpress, and internal mail account. Connecting to the FTP server gives us an SQL dump and backup of the site files.</description>
+    </item>
+    
+  </channel>
+</rss>

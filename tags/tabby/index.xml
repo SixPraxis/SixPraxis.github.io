@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tabby on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/tabby/</link>
+    <description>Recent content in tabby on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/tabby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Tabby</title>
+      <link>https://sixpraxis.github.io/posts/tabby/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/tabby/</guid>
+      <description>Tabby 10.10.10.194 by SixPraxis Write-Up Initial nmap scans revealed three ports, two of which were running HTTP services, the other being SSH. A server rental website resided on port 80 and Apache Tomcat 9 on port 8080. Investigating the site on port 80 revealed that news.php contained an LFI vulnerability. Tests successfully accessed /etc/passwd by requesting http://target.htb/news.php?file=../../../../../../../../etc/passwd. No further vulnerabilities were found on port 80.
+Port 8080 displayed the default page for Tomcat, listing internal paths to configuration files and links to the manager web interfaces used to manage the installation.</description>
+    </item>
+    
+  </channel>
+</rss>

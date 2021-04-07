@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>worker on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/worker/</link>
+    <description>Recent content in worker on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/worker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Worker</title>
+      <link>https://sixpraxis.github.io/posts/worker/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/worker/</guid>
+      <description>Worker 10.10.10.203 by SixPraxis Write-Up Nmap scans showed three open ports. The two web ports revealed no useful information, one had a default IIS and the other a 404 page. Fuzzing found no additional pages. To investigate port 3690, the attacker used netcat, getting a response showing available SVN commands.
+$nc 10.10.10.203 3690 ( success ( 2 2 ( ) ( edit-pipeline svndiff1 accepts-svndiff2 absent-entries commit-revprops depth log-revprops atomic-revprops partial-replay inherited-props ephemeral-txnprops file-revs-reverse list ) ) ) svn list svn://10.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SixPraxis</title>
+    <link>https://sixpraxis.github.io/</link>
+    <description>Recent content on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Admirer</title>
+      <link>https://sixpraxis.github.io/posts/admirer/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/admirer/</guid>
+      <description>Admirer 10.10.10.187 Write-Up Recon with NMAP shows three ports. 21, 22, 80. No progress on the first two. The apache service on 80 displays a gallery website with no useful links. Robots.txt reveals /admin-dir, but we do not have permission to view it. Fuzzing /admin-dir/ revealed contacts.txt, which contains some admin and developer e-mails, and credentials.txt, which has creds for an FTP, Wordpress, and internal mail account. Connecting to the FTP server gives us an SQL dump and backup of the site files.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Blunder</title>
+      <link>https://sixpraxis.github.io/posts/blunder/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/blunder/</guid>
+      <description>Blunder 10.10.10.191 by SixPraxis
+Write-Up Initial recon shows one open port running an HTML service. Inspection reveals a blog running on Bludit CMS v3.9.2. Known exploits for this platform include an authentication brute force mitigation bypass and an authenticated code execution. Fuzzing found a todo.txt, which has the name fergus in it. After creating a brute force script and making no progress, we notice that in the Stephen King blog post there is a name that is oddly unspaced.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Buff</title>
+      <link>https://sixpraxis.github.io/posts/buff/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/buff/</guid>
+      <description>Buff 10.10.10.198 by SixPraxis Write-Up Nmap scans showed 2 open ports, 7680 running an unidentified service and 8080 running a gym website. The about page on the website displayed &amp;ldquo;Made using Gym Management Software 1.0&amp;rdquo;. An RCE vulnerability is present in the software and an exploit is publicly available. A pre-made exploit was downloaded from exploit db, number 48506. After fixing the code in the exploit, it was used to upload a web shell interface to the site.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Omni</title>
+      <link>https://sixpraxis.github.io/posts/omni/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/omni/</guid>
+      <description>Omni 10.10.10.204 by SixPraxis Write-Up Pulling up port 8080 in a web browser asks for a login for &amp;ldquo;Windows Device Portal&amp;rdquo;. After looking at the ports and doing some research it&amp;rsquo;s very likely that the machine is running Windows IoT core. An exploit called SirepRAT exists for this that lets an attacker remotely execute commands. After cloning the script from git hub, python2 SirepRAT.py 10.10.10.204 GetFileInformationFromDevice --remote_path &amp;quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&amp;quot; was issued to confirm the existence of the powershell executable.</description>
+    </item>
+    
+    <item>
+      <title>HTB - OpenKeyS</title>
+      <link>https://sixpraxis.github.io/posts/openkeys/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/openkeys/</guid>
+      <description>OpenKeyS 10.10.10.199 by SixPraxis Write-Up Two open ports were available at the time of scanning. One ssh port, one http port. The http port displayed a simple login page. Fuzzing found the /includes/ which contained auth.php and auth.php.swp. VIM swap files contain changes that have been made to a file, but not yet saved. Downloading auth.php.swp and using strings to open the file revealed a potential username &amp;ldquo;jennifer&amp;rdquo; and another file at .</description>
+    </item>
+    
+    <item>
+      <title>HTB - Passage</title>
+      <link>https://sixpraxis.github.io/posts/passage/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/passage/</guid>
+      <description>Passage 10.129.5.60 (Release Arena) by SixPraxis Write-Up Port 80 contained a news blog being run on the CuteNews cms software. http://10.129.5.60/CuteNews/ provided the version number of 2.1.2 and a login page. Searching the version number revealed three known exploits:
+CuteNews 2.1.2 - &#39;avatar&#39; Remote Code Execution (Metasploit) | php/remote/46698.rb CuteNews 2.1.2 - Arbitrary File Deletion | php/webapps/48447.txt CuteNews 2.1.2 - Authenticated Arbitrary File Upload | php/webapps/48458.txt Exploit 48458 allows file upload with a low level user, so the attacker registered for the website with gunship : gunship1 to get access to vulnerable area of the site.</description>
+    </item>
+    
+    <item>
+      <title>HTB - SneakyMailer</title>
+      <link>https://sixpraxis.github.io/posts/sneakymailer/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/sneakymailer/</guid>
+      <description>SneakyMailer 10.10.10.197 by SixPraxis Write-Up Initial scans showed FTP, SMTP, POP3, and HTTP ports. Port 80 displayed a dashboard with team member names and emails. The attacker used cewl to scrape the emails,  cewl -w cewlwords.txt -e --email_file emails.txt http://sneakycorp.htb and then awk -F @ &#39;{print $1}&#39; emails.txt &amp;gt; emailstrimmed.txt to create a list of usernames without the @sneakycorp.htb extension. Using the email list with the python version of smtp-user-enum found all of the accounts valid on this mail server.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Tabby</title>
+      <link>https://sixpraxis.github.io/posts/tabby/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/tabby/</guid>
+      <description>Tabby 10.10.10.194 by SixPraxis Write-Up Initial nmap scans revealed three ports, two of which were running HTTP services, the other being SSH. A server rental website resided on port 80 and Apache Tomcat 9 on port 8080. Investigating the site on port 80 revealed that news.php contained an LFI vulnerability. Tests successfully accessed /etc/passwd by requesting http://target.htb/news.php?file=../../../../../../../../etc/passwd. No further vulnerabilities were found on port 80.
+Port 8080 displayed the default page for Tomcat, listing internal paths to configuration files and links to the manager web interfaces used to manage the installation.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Worker</title>
+      <link>https://sixpraxis.github.io/posts/worker/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/worker/</guid>
+      <description>Worker 10.10.10.203 by SixPraxis Write-Up Nmap scans showed three open ports. The two web ports revealed no useful information, one had a default IIS and the other a 404 page. Fuzzing found no additional pages. To investigate port 3690, the attacker used netcat, getting a response showing available SVN commands.
+$nc 10.10.10.203 3690 ( success ( 2 2 ( ) ( edit-pipeline svndiff1 accepts-svndiff2 absent-entries commit-revprops depth log-revprops atomic-revprops partial-replay inherited-props ephemeral-txnprops file-revs-reverse list ) ) ) svn list svn://10.</description>
+    </item>
+    
+  </channel>
+</rss>

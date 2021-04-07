@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openkeys on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/openkeys/</link>
+    <description>Recent content in openkeys on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/openkeys/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - OpenKeyS</title>
+      <link>https://sixpraxis.github.io/posts/openkeys/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/openkeys/</guid>
+      <description>OpenKeyS 10.10.10.199 by SixPraxis Write-Up Two open ports were available at the time of scanning. One ssh port, one http port. The http port displayed a simple login page. Fuzzing found the /includes/ which contained auth.php and auth.php.swp. VIM swap files contain changes that have been made to a file, but not yet saved. Downloading auth.php.swp and using strings to open the file revealed a potential username &amp;ldquo;jennifer&amp;rdquo; and another file at .</description>
+    </item>
+    
+  </channel>
+</rss>

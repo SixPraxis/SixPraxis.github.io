@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>omni on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/omni/</link>
+    <description>Recent content in omni on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/omni/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Omni</title>
+      <link>https://sixpraxis.github.io/posts/omni/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/omni/</guid>
+      <description>Omni 10.10.10.204 by SixPraxis Write-Up Pulling up port 8080 in a web browser asks for a login for &amp;ldquo;Windows Device Portal&amp;rdquo;. After looking at the ports and doing some research it&amp;rsquo;s very likely that the machine is running Windows IoT core. An exploit called SirepRAT exists for this that lets an attacker remotely execute commands. After cloning the script from git hub, python2 SirepRAT.py 10.10.10.204 GetFileInformationFromDevice --remote_path &amp;quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&amp;quot; was issued to confirm the existence of the powershell executable.</description>
+    </item>
+    
+  </channel>
+</rss>
