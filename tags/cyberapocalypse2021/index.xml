@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cyberapocalypse2021 on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/cyberapocalypse2021/</link>
+    <description>Recent content in cyberapocalypse2021 on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/cyberapocalypse2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyber Apocalypse 2021</title>
+      <link>https://sixpraxis.github.io/posts/cyberapocalypse2021/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/cyberapocalypse2021/</guid>
+      <description>Cyber Apocalypse 2021 I came into this one pretty out of practice. I haven&amp;rsquo;t spent much time on the pentesting front since I started studying for my CCNA a few months back. I still had a lot of fun with it and will definitely be participating next year.
+Categories  Web Crypto Reversing Forensics Misc  Web Inspector Gadget Opening the url in a browser gives us a page showing a robot flying through space with CHTB{ in text above it.</description>
+    </item>
+    
+  </channel>
+</rss>

