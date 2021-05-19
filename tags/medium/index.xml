@@ -6,11 +6,11 @@
     <description>Recent content in medium on SixPraxis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB - Ready</title>
       <link>https://sixpraxis.github.io/posts/ready/</link>
-      <pubDate>Thu, 06 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://sixpraxis.github.io/posts/ready/</guid>
       <description>Ready Contents  Write Up Recon Credentials Notes  Write Up Two open ports, 22 and a web server on 5080. The web server is hosting an instance of GitLab. Signing up works without verification and lets me onto the GitLab dashboard. There&amp;rsquo;s one public project called ready-channel, created by user &amp;ldquo;dude&amp;rdquo;. The project repo houses a drupal install and we pick up some mysql credentials(drupaluser : %%cHzhNC=k9yYN!T) from the settings.</description>
