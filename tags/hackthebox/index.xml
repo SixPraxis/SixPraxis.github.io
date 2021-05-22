@@ -6,7 +6,17 @@
     <description>Recent content in hackthebox on SixPraxis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Delivery</title>
+      <link>https://sixpraxis.github.io/posts/delivery/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/delivery/</guid>
+      <description>Delivery Contents  Write Up Recon Credentials Notes  Write Up First scans show two open ports, 22 and 80. Opening up the address in a web browser brings us to a welcome page with a link to a helpdesk subdomain(http://helpdesk.delivery.htb/) and a &amp;ldquo;Contact Us&amp;rdquo; button. To access this subdomain, I added it to my hosts file with the box&amp;rsquo;s ip.
+The subdomain takes us to a support ticketing portal powered by OSTicket.</description>
+    </item>
+    
     <item>
       <title>HTB - Ready</title>
       <link>https://sixpraxis.github.io/posts/ready/</link>

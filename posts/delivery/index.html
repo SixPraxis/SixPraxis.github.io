@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>HTB - Delivery // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="Write Up for HackTheBox&#39;s Delivery" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.802b52396e9009f466997720acea24d1773f8e6e5db6e4793067fa2dfd981e02.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTB - Delivery"/>
+<meta name="twitter:description" content="Write Up for HackTheBox&#39;s Delivery"/>
+
+    <meta property="og:title" content="HTB - Delivery" />
+<meta property="og:description" content="Write Up for HackTheBox&#39;s Delivery" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/delivery/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-22T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-22T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">HTB - Delivery</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 22, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/delivery/">delivery</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/easy/">easy</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="delivery">Delivery</h1>
+<p><img src="/images/htb-delivery/delivery.png" alt="Delivery"></p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li><a href="#WriteUp">Write Up</a></li>
+<li><a href="#Recon">Recon</a></li>
+<li><a href="#Credentials">Credentials</a></li>
+<li><a href="#Notes">Notes</a></li>
+</ul>
+<h2 id="WriteUp">Write Up</h2>
+<p>First scans show two open ports, 22 and 80. Opening up the address in a web browser brings us to a welcome page with a link to a helpdesk subdomain(<code>http://helpdesk.delivery.htb/</code>) and a &ldquo;Contact Us&rdquo; button. To access this subdomain, I added it to my hosts file with the box&rsquo;s ip.</p>
+<p>The subdomain takes us to a support ticketing portal powered by OSTicket. Searching exploit db shows a few useful exploits for OSTicket, but we still don&rsquo;t know the version number. After spending some time exploring the helpdesk portal, I didn&rsquo;t find any more useful information and head back to the main page to make sure I didn&rsquo;t miss anything.</p>
+<p>Back on the main page, the contact us button reveals the information we need. It also reminds us of the importance of scanning all ports during recon by providing a link to the MatterMost service running on port 8065.</p>
+<blockquote>
+<p>For unregistered users, please use our HelpDesk to get in touch with our team. Once you have an @delivery.htb email address, you&rsquo;ll be able to have access to our MatterMost server.</p>
+</blockquote>
+<p>The MatterMost server only allows emails in the delivery.htb domain to make accounts, so we need to get one. When a new ticket is created on the helpdesk an email is also created for that ticket. Anything sent to that email is added to the ticket. Using the generated email, we sign up for an account on the MatterMost server. A verification email is sent to the address, which pops up on helpdesk ticket, allowing us to verify the new account.</p>
+<p><img src="/images/htb-delivery/delivery2.png" alt="Verification Email"></p>
+<p>Now we have access to the MatterMost interface. After joining the &ldquo;Internal&rdquo; channel we immediately see a message from root:</p>
+<blockquote>
+<p>@developers Please update theme to the OSTicket before we go live.  Credentials to the server are maildeliverer:Youve_G0t_Mail! Also please create a program to help us stop re-using the same passwords everywhere&hellip;. Especially those that are a variant of &ldquo;PleaseSubscribe!&rdquo;</p>
+</blockquote>
+<p>So, now we&rsquo;ve got the password for the OSTicket agent portal and we know that variants of &ldquo;PleaseSubscribe!&rdquo; are being used as passwords across the site. Heading back to OSTicket, clicking sign in and then the link by &ldquo;I&rsquo;m an agent&rdquo; takes us to the login page where we can use the maildeliverer credentials.</p>
+<p>Looking through the OSTicket platform, the only other user besides the generated ones is named &ldquo;bob&rdquo;. With no other leads, I try the maildeliverer credentials with SSH. Success! The user flag is in the maildeliverer&rsquo;s home directory.</p>
+<p><img src="/images/htb-delivery/delivery3.png" alt="User Access"></p>
+<p>After looking up information on where OSTicket database information is stored, I learned the credentials for the storage database are located in the <code>/include/ost-config.php</code> file. Also, the credentials for the MatterMost db are in the <code>/opt/mattermost/config/config.json</code> file.</p>
+<blockquote>
+<p>ost_user : !H3lpD3sk123!</p>
+</blockquote>
+<blockquote>
+<p>&ldquo;DataSource&rdquo;: &ldquo;mmuser:Crack_The_MM_Admin_PW@tcp(127.0.0.1:3306)/mattermost?charset=utf8mb4,utf8\u0026readTim
+eout=30s\u0026writeTimeout=30s&rdquo;</p>
+</blockquote>
+<p>The password to the MM database is a little hint telling us to crack the MM Admin Password.</p>
+<pre><code>mysql -u mmuser -p mattermost
+SHOW TABLES;
+SHOW COLUMNS FROM Users;
+SELECT Password FROM Users WHERE Username = 'root';
+
++--------------------------------------------------------------+
+| Password                                                     |
++--------------------------------------------------------------+
+| $2a$10$VM6EeymRxJ29r8Wjkr8Dtev0O.1STWb4.4ScG.anuu7v0EFJwgjjO |
++--------------------------------------------------------------+
+</code></pre><p>Okay, now that we&rsquo;ve got the hash for the admin password, it&rsquo;s time to crack it. Earlier we learned that variations of &ldquo;PleaseSubscribe!&rdquo; are being used as passwords, so we&rsquo;ll combine that with a rule in hashcat to test for permutations. After a few minutes, hashcat pops the password.</p>
+<pre><code>hashcat -a 0 -m 3200 hash.txt passwords.txt -r OneRuleToRuleThemAll.rule
+
+$2a$10$VM6EeymRxJ29r8Wjkr8Dtev0O.1STWb4.4ScG.anuu7v0EFJwgjjO:PleaseSubscribe!21
+                                                 
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: bcrypt $2*$, Blowfish (Unix)
+</code></pre><p>This password doesn&rsquo;t get us root SSH access, but using su from the maildeliverer user works just fine!</p>
+<p><img src="/images/htb-delivery/delivery4.png" alt="Root Access"></p>
+<hr>
+<h2 id="Recon">Recon</h2>
+<p>Initial Scan:</p>
+<pre><code>nmap -sV 10.10.10.222
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+80/tcp open  http    nginx 1.14.2
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><p>Second pass(all TCP ports):</p>
+<pre><code>nmap -sV -p- 10.10.10.222
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+80/tcp   open  http    nginx 1.14.2
+8065/tcp open  unknown
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><hr>
+<h2 id="Credentials">Credentials</h2>
+<h4 id="host-users">Host users:</h4>
+<pre><code>root : PleaseSubscribe!21
+maildeliverer : Youve_G0t_Mail!
+</code></pre><h4 id="mattermost">MatterMost:</h4>
+<pre><code>(Generated) 8315286@delivery.htb : P@ssw0rd_101
+root@delivery.htb
+</code></pre><h4 id="osticket-backend">OSTicket Backend</h4>
+<pre><code>maildeliverer : Youve_G0t_Mail!
+</code></pre><h4 id="osticket-mysql-database">OSTicket MySQL Database:</h4>
+<pre><code>ost_user : !H3lpD3sk123!
+</code></pre><h4 id="general">General:</h4>
+<p>PleaseSubscribe! variations</p>
+<hr>
+<h2 id="Notes">Notes</h2>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
