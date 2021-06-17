@@ -6,29 +6,11 @@
     <description>Recent content in Tags on SixPraxis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>delivery</title>
-      <link>https://sixpraxis.github.io/tags/delivery/</link>
-      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://sixpraxis.github.io/tags/delivery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>easy</title>
-      <link>https://sixpraxis.github.io/tags/easy/</link>
-      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://sixpraxis.github.io/tags/easy/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hackthebox</title>
       <link>https://sixpraxis.github.io/tags/hackthebox/</link>
-      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://sixpraxis.github.io/tags/hackthebox/</guid>
       <description></description>
@@ -37,9 +19,45 @@
     <item>
       <title>medium</title>
       <link>https://sixpraxis.github.io/tags/medium/</link>
-      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>https://sixpraxis.github.io/tags/medium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tenet</title>
+      <link>https://sixpraxis.github.io/tags/tenet/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/tags/tenet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>easy</title>
+      <link>https://sixpraxis.github.io/tags/easy/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/tags/easy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scriptkiddie</title>
+      <link>https://sixpraxis.github.io/tags/scriptkiddie/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/tags/scriptkiddie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>delivery</title>
+      <link>https://sixpraxis.github.io/tags/delivery/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/tags/delivery/</guid>
       <description></description>
     </item>
     

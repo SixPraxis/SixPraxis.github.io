@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tenet on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/tenet/</link>
+    <description>Recent content in tenet on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/tenet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Tenet</title>
+      <link>https://sixpraxis.github.io/posts/tenet/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/tenet/</guid>
+      <description>Tenet Contents  Write Up Recon Credentials Notes  Write Up Two ports, 22 and 80. Pulling up 80 by IP shows the Apache2 Ubuntu Default Page, but pulling it up by tenet.htb after adding it to my hosts file pulls up a WordPress site. User &amp;ldquo;protagonist&amp;rdquo; has authored all of the posts, one comment by user &amp;ldquo;neil&amp;rdquo; who seems to be a part of the organization.
+Possible lead in neil&amp;rsquo;s comment did you remove the sator php file and the backup?</description>
+    </item>
+    
+  </channel>
+</rss>

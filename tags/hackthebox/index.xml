@@ -6,7 +6,26 @@
     <description>Recent content in hackthebox on SixPraxis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Tenet</title>
+      <link>https://sixpraxis.github.io/posts/tenet/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/tenet/</guid>
+      <description>Tenet Contents  Write Up Recon Credentials Notes  Write Up Two ports, 22 and 80. Pulling up 80 by IP shows the Apache2 Ubuntu Default Page, but pulling it up by tenet.htb after adding it to my hosts file pulls up a WordPress site. User &amp;ldquo;protagonist&amp;rdquo; has authored all of the posts, one comment by user &amp;ldquo;neil&amp;rdquo; who seems to be a part of the organization.
+Possible lead in neil&amp;rsquo;s comment did you remove the sator php file and the backup?</description>
+    </item>
+    
+    <item>
+      <title>HTB - ScriptKiddie</title>
+      <link>https://sixpraxis.github.io/posts/scriptkiddie/</link>
+      <pubDate>Sat, 05 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/scriptkiddie/</guid>
+      <description>ScriptKiddie Contents  Write Up Recon Credentials Notes  Write Up Initial scan showed two open ports, 22 and 5000. 5000 hosts a web server, so we&amp;rsquo;ll start there. We&amp;rsquo;re greeted with a page titled &amp;ldquo;k1d&#39;5 h4ck3r t00l5&amp;rdquo;, which looks like it&amp;rsquo;ll run certain shell commands with user supplied input. Among the commands are nmap, msfvenom, and searchsploit. Tacking on commands with &amp;amp; doesn&amp;rsquo;t work, neither does using single or double quotes to escape.</description>
+    </item>
+    
     <item>
       <title>HTB - Delivery</title>
       <link>https://sixpraxis.github.io/posts/delivery/</link>
