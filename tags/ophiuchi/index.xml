@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ophiuchi on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/ophiuchi/</link>
+    <description>Recent content in ophiuchi on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/ophiuchi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Ophiuchi</title>
+      <link>https://sixpraxis.github.io/posts/ophiuchi/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/ophiuchi/</guid>
+      <description>Ophiuchi Contents  Write Up Recon Credentials Notes  Write Up Two ports are open, 22 and 8080. Pulling up 8080 brings up an online yaml parser page. Submitting text brings up a page with Due to security reason this feature has been temporarily on hold. We will soon fix the issue!. Putting a &#39; in the input and hitting submit pulls up an error page, revealing that the page is using snakeyaml.</description>
+    </item>
+    
+  </channel>
+</rss>

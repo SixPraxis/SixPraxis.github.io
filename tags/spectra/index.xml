@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spectra on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/spectra/</link>
+    <description>Recent content in spectra on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/spectra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Spectra</title>
+      <link>https://sixpraxis.github.io/posts/spectra/</link>
+      <pubDate>Sat, 26 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/spectra/</guid>
+      <description>Spectra Contents  Write Up Recon Credentials Notes  Write Up Initial scan shows three open ports, 22, 80, and 3306. The web port takes us to a temporary looking page that offers a link to a wordpress site and says to use that until they get Jira set up. Another link on the page takes us to an error message saying that a database connection could not be established.</description>
+    </item>
+    
+  </channel>
+</rss>

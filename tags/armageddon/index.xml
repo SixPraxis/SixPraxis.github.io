@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>armageddon on SixPraxis</title>
+    <link>https://sixpraxis.github.io/tags/armageddon/</link>
+    <description>Recent content in armageddon on SixPraxis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sixpraxis.github.io/tags/armageddon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Armageddon</title>
+      <link>https://sixpraxis.github.io/posts/armageddon/</link>
+      <pubDate>Sat, 24 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sixpraxis.github.io/posts/armageddon/</guid>
+      <description>Armageddon Contents  Write Up Recon Credentials Notes  Write Up Initial scan shows two ports, 22 and 80. Checking out the web port shows us a welcome page with a login. WFuzz finds a few directories we can check out. Looking through the files in the /includes directory points towards this being a drupal 7.56 install. Searchsploit shows multiple RCE exploits called drupalgeddon. Drupalgeddon2&amp;rsquo;s version range matches our version, let&amp;rsquo;s give it a shot.</description>
+    </item>
+    
+  </channel>
+</rss>
