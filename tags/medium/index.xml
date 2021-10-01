@@ -13,9 +13,7 @@
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://sixpraxis.github.io/posts/thenotebook/</guid>
-      <description>TheNotebook ![TheNotebook]/images/htb-thenotebook/thenotebook.png)
-Contents  Write Up Recon Credentials Notes  Write Up Two open ports, 22 and 80, one filtered port 10010. Pulling up the website takes us to a notebook page with a register and login link. Let&amp;rsquo;s look around.
-![Welcome Page]/images/htb-thenotebook/thenotebook1.png)
+      <description>TheNotebook Contents  Write Up Recon Credentials Notes  Write Up Two open ports, 22 and 80, one filtered port 10010. Pulling up the website takes us to a notebook page with a register and login link. Let&amp;rsquo;s look around.
 The register page lets you sign up without verification. I made a user test1 : password1. The log in page provides error messages that let you verify if a user exists, &amp;ldquo;admin&amp;rdquo; exists.</description>
     </item>
     

